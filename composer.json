@@ -1,0 +1,20 @@
+{
+    "name": "jmichaelward/jmw-publish",
+    "description": "Publish WordPress content to external APIs.",
+    "type": "wordpress-plugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Jeremy Ward",
+            "email": "jeremy@jmichaelward.com"
+        }
+    ],
+    "require": {
+        "webdevstudios/oops-wp": "^0.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JMichaelWard\\JmwPublish\\": "src/"
+        }
+    }
+}
