@@ -57,7 +57,7 @@ class JmwPublish extends Plugin implements Hookable {
 			[ 'body' => [ 'post_data' => json_encode( $post ) ] ] // @codingStandardsIgnoreLine
 		);
 
-		if ( 200 === $request->get_error_code() ) {
+		if ( 200 === wp_remote_retrieve_response_code( $request ) ) {
 			return $post_id;
 		}
 
