@@ -10,6 +10,9 @@
  * @package JMichaelWard\JmwPublish
  */
 
+use JMichaelWard\JmwPublish\JmwPublish;
+use Symfony\Component\Dotenv\Dotenv;
+
 $autoload = __DIR__ . '/vendor/autoload.php';
 
 if ( is_readable( $autoload ) ) {
@@ -20,12 +23,18 @@ try {
 	add_action(
 		'plugins_loaded',
 		function() {
-			( new \JMichaelWard\JmwPublish\JmwPublish() )->run();
+			// @TODO Most implementations might check for environment variables from the app. Make this better.
+			$env = __DIR__ . '/.env';
+
+			if ( is_readable( $env ) ) {
+				$dotenv = new Dotenv( true );
+				$dotenv->load( $env );
+			}
+
+			( new JmwPublish() )->run();
 		}
 	);
 } catch ( Throwable $e ) {
 	// @TODO Handle this differently after scaffolding is finished.
 	error_log( $e->getMessage() ); // @codingStandardsIgnoreLine
 }
-
-
