@@ -7,10 +7,10 @@
 
 namespace JMichaelWard\JmwPublish;
 
+use Exception;
 use WebDevStudios\OopsWP\Structure\Plugin\Plugin;
 use WebDevStudios\OopsWP\Utility\Hookable;
-use \WP_Post;
-use \Exception;
+use WP_Post;
 
 /**
  * Class JmwPublish
